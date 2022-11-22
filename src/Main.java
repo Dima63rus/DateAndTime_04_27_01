@@ -8,25 +8,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 /*
-   Напишите программу, которая покажет прошедшие дни вашего рождения от нуля лет до текущего времени
-   в формате: возраст, дата и день недели.
+   РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РїРѕРєР°Р¶РµС‚ РїСЂРѕС€РµРґС€РёРµ РґРЅРё РІР°С€РµРіРѕ СЂРѕР¶РґРµРЅРёСЏ РѕС‚ РЅСѓР»СЏ Р»РµС‚ РґРѕ С‚РµРєСѓС‰РµРіРѕ РІСЂРµРјРµРЅРё
+   РІ С„РѕСЂРјР°С‚Рµ: РІРѕР·СЂР°СЃС‚, РґР°С‚Р° Рё РґРµРЅСЊ РЅРµРґРµР»Рё.
 
-   Дату рождения задавайте используя три переменные:
+   Р”Р°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ Р·Р°РґР°РІР°Р№С‚Рµ РёСЃРїРѕР»СЊР·СѓСЏ С‚СЂРё РїРµСЂРµРјРµРЅРЅС‹Рµ:
      int day = 31;
      int month = 12;
      int year = 1990;
 
-    Формат требуемого вывода:
+    Р¤РѕСЂРјР°С‚ С‚СЂРµР±СѓРµРјРѕРіРѕ РІС‹РІРѕРґР°:
       0 - 31.12.1990 - Mon
       1 - 31.12.1991 - Tue
-      …
+      вЂ¦
 */
         Scanner loScanner = new Scanner(System.in);
         System.out.println("Enter you birthday in format: dd.mm.yyyy");
 
         String loScannerVal = loScanner.nextLine();
 
-        //Представление данных
+        //РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С…
         SimpleDateFormat loSimpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         SimpleDateFormat loSimpleDateFormatOut = new SimpleDateFormat("dd.MM.yyyy EEE", Locale.ENGLISH);
 
@@ -34,17 +34,17 @@ public class Main {
             //Conv String -> Date
             Date loBirthdayDate = loSimpleDateFormat.parse(loScannerVal);
 
-            //Дата дня рождения
+            //Р”Р°С‚Р° РґРЅСЏ СЂРѕР¶РґРµРЅРёСЏ
             Calendar loCalendarBirthday = Calendar.getInstance();
             loCalendarBirthday.setTime(loBirthdayDate);
             System.out.println("Your Birthday: " + loCalendarBirthday.getTime());
 
-            //Текущая дата через Calendar
+            //РўРµРєСѓС‰Р°СЏ РґР°С‚Р° С‡РµСЂРµР· Calendar
             Calendar loCalendarCurr = Calendar.getInstance();
             Date loCurrDate = loCalendarCurr.getTime();
             System.out.println("Current date: " + loCalendarCurr.getTime());
 
-            //Разница между датами
+            //Р Р°Р·РЅРёС†Р° РјРµР¶РґСѓ РґР°С‚Р°РјРё
             int lvPorNumb = 0;
             if (loCalendarBirthday.after(loCalendarCurr)) {
                 System.out.println("Impossible");
